@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Embedded Systems Engineer - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">Embedded Engineer</div>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Hi, I'm <span class="highlight">Pozhilan Karthikeyan</span></h1>
+          <h2>I'm an <span class="typed-text"></span></h2>
+          <p>
+            Passionate embedded systems engineer specializing in microcontroller
+            programming, IoT solutions, and hardware-software integration. I
+            design and develop efficient, reliable embedded systems for various
+            applications.
+          </p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn primary-btn">Contact Me</a>
+            <a href="#projects" class="btn secondary-btn">View My Work</a>
+          </div>
+          <div class="social-icons">
+            <a href="https://github.com/PozhilanKarthikeyan" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/pozhilan-karthikeyan-905b6735a/"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="images/profile-placeholder.jpg" alt="Profile Picture" />
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>About Pozhilan Karthikeyan</h3>
+            <p>
+              I am a passionate embedded systems engineer with expertise in
+              microcontroller programming, IoT solutions, and hardware-software
+              integration. With a strong background in electronics engineering,
+              I specialize in developing efficient, real-time embedded
+              applications using C/C++ and various communication protocols.
+            </p>
+            <p>
+              I have a background in Electronics Engineering and have been
+              working in embedded systems development for several years. My
+              expertise spans from bare-metal programming to RTOS
+              implementation, hardware debugging, and PCB design. I'm passionate
+              about creating innovative solutions that bridge the gap between
+              hardware and software.
+            </p>
+            <a
+              href="https://drive.google.com/file/d/1SDvJYcp2CvootbloMJDGTi1--iHtB9eY/view?usp=sharing"
+              class="btn primary-btn"
+              >Download Resume</a
+            >
+          </div>
+          <div class="about-image">
+            <img src="images/about-placeholder.jpg" alt="About Me" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="iot">IoT Systems</button>
+          <button class="filter-btn" data-filter="microcontroller">
+            Microcontrollers
+          </button>
+          <button class="filter-btn" data-filter="hardware">
+            Hardware Design
+          </button>
+        </div>
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card" data-category="iot">
+            <div class="project-image">
+              <img
+                src="images/project1-placeholder.jpg"
+                alt="IoT Weather Station"
+              />
+            </div>
+            <div class="project-info">
+              <h3>IoT Weather Monitoring System</h3>
+              <p>
+                ESP32-based weather station with DHT22 sensors, real-time data
+                transmission via WiFi, and cloud dashboard integration using
+                MQTT protocol.
+              </p>
+              <div class="project-links">
+                <a href="#" target="_blank"
+                  ><i class="fas fa-microchip"></i> Hardware Details</a
+                >
+                <a href="#" target="_blank"
+                  ><i class="fab fa-github"></i> Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div class="project-card" data-category="microcontroller">
+            <div class="project-image">
+              <img
+                src="images/project2-placeholder.jpg"
+                alt="RTOS Task Scheduler"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Real-Time Motor Control System</h3>
+              <p>
+                ARM Cortex-M4 based motor control system using FreeRTOS, with
+                precise speed control, encoder feedback, and CAN bus
+                communication.
+              </p>
+              <div class="project-links">
+                <a href="#" target="_blank"
+                  ><i class="fas fa-cogs"></i> Demo Video</a
+                >
+                <a href="#" target="_blank"
+                  ><i class="fab fa-github"></i> Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div class="project-card" data-category="hardware">
+            <div class="project-image">
+              <img src="images/project3-placeholder.jpg" alt="PCB Design" />
+            </div>
+            <div class="project-info">
+              <h3>Multi-Sensor Data Logger</h3>
+              <p>
+                Custom PCB design with STM32 microcontroller, multiple sensor
+                interfaces, SD card storage, and low-power optimization for
+                battery operation.
+              </p>
+              <div class="project-links">
+                <a href="#" target="_blank"
+                  ><i class="fas fa-file-pdf"></i> Schematic</a
+                >
+                <a href="#" target="_blank"
+                  ><i class="fab fa-github"></i> Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Project 4 -->
+          <div class="project-card" data-category="microcontroller">
+            <div class="project-image">
+              <img
+                src="images/mars-rover-placeholder.jpg"
+                alt="Mars Rover Simulation"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Mars Rover Navigation System</h3>
+              <p>
+                Autonomous rover simulation using STM32F4 with ultrasonic
+                sensors, GPS navigation, camera module, and obstacle avoidance
+                algorithms for Mars terrain exploration.
+              </p>
+              <div class="project-links">
+                <a href="#" target="_blank"
+                  ><i class="fas fa-video"></i> Demo Video</a
+                >
+                <a href="#" target="_blank"
+                  ><i class="fab fa-github"></i> Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-content">
+          <div class="skills-category">
+            <h3>Programming Languages</h3>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-code"></i></div>
+                <h4>C/C++</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fab fa-python"></i></div>
+                <h4>Python</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+                <h4>Assembly</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h3>Microcontrollers & Hardware</h3>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+                <h4>ARM Cortex-M</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-wifi"></i></div>
+                <h4>ESP32/Arduino</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 88%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-tools"></i></div>
+                <h4>PCB Design</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h3>Protocols & Communication</h3>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <i class="fas fa-exchange-alt"></i>
+                </div>
+                <h4>I2C/SPI/UART</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 92%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <i class="fas fa-network-wired"></i>
+                </div>
+                <h4>CAN Bus</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-wifi"></i></div>
+                <h4>WiFi/Bluetooth</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h3>Development Tools</h3>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-bug"></i></div>
+                <h4>JTAG/SWD Debugging</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 88%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-tasks"></i></div>
+                <h4>FreeRTOS</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+                <h4>Git/Version Control</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 90%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-intro">
+          <p>Ready to collaborate on your next embedded systems project? Let's connect! You can reach me through multiple channels below.</p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">            <div class="contact-item clickable" onclick="copyToClipboard('pozhilankarthikeyan2005@gmail.com', 'Email copied!')">
+              <i class="fas fa-envelope"></i>
+              <h3>Email</h3>
+              <p style="word-break: break-all; overflow-wrap: break-word;">pozhilankarthikeyan2005@gmail.com</p>
+              <small>Click to copy</small>
+            </div>
+            <div class="contact-item clickable" onclick="copyToClipboard('+91 944 364 2239', 'Phone number copied!')">
+              <i class="fas fa-phone"></i>
+              <h3>Phone</h3>
+              <p>+91 944 364 2239</p>
+              <small>Click to copy</small>
+            </div>            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <h3>Location</h3>
+              <p>Chennai, India</p>
+            </div>
+          </div>          <div class="contact-form">            <div class="form-notice">
+              <i class="fas fa-info-circle"></i>
+              <p><strong>Having email issues?</strong> Sometimes contact form emails may go to spam. For faster response, try copying my email address above!</p>
+            </div>
+            <form id="contactForm">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="Subject"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn primary-btn">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="copyright">
+            <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+          </div>
+          <div class="social-icons">
+            <a href="https://github.com/PozhilanKarthikeyan" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/pozhilan-karthikeyan-905b6735a/"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- EmailJS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
