@@ -1,137 +1,60 @@
 # Embedded Systems Engineer Portfolio
 
-A responsive portfolio website for embedded systems engineers, built with HTML, CSS, and JavaScript.
+A modern, responsive portfolio website showcasing embedded systems engineering expertise.
 
-## Features
+## 🌐 Live Website
 
-- Responsive design that works on all devices
-- Smooth scrolling navigation
-- Project filtering by embedded systems categories (IoT, Microcontrollers, Hardware)
-- Skills section showcasing embedded systems expertise
-- Contact form for potential clients/employers
-- Animated typing effect with embedded systems roles
-- Scroll animations
-- Mobile-friendly navigation
+**Visit the live portfolio:** [https://pozhilankarthikeyan.github.io/Portfolio/](https://pozhilankarthikeyan.github.io/Portfolio/)
 
-## Embedded Systems Focus
+## 🚀 Features
 
-This portfolio is specifically designed for embedded systems engineers and includes:
+- **Responsive Design**: Works seamlessly across all devices
+- **Project Showcase**: Categorized embedded systems projects (IoT, Microcontrollers, Hardware)
+- **Skills Display**: Visual representation of technical expertise
+- **Contact Integration**: Multiple contact methods with click-to-copy functionality
+- **Modern UI**: Smooth animations and professional design
 
-### Project Categories:
-- **IoT Systems**: Internet of Things projects and connected devices
-- **Microcontrollers**: ARM Cortex-M, ESP32, Arduino-based projects  
-- **Hardware Design**: PCB design, circuit design, and hardware integration
+## 🛠️ Tech Stack
 
-### Skills Sections:
-- **Programming Languages**: C/C++, Python, Assembly
-- **Microcontrollers & Hardware**: ARM Cortex-M, ESP32/Arduino, PCB Design
-- **Protocols & Communication**: I2C/SPI/UART, CAN Bus, WiFi/Bluetooth
-- **Development Tools**: JTAG/SWD Debugging, FreeRTOS, Git/Version Control
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Deployment**: GitHub Pages with GitHub Actions
+- **Icons**: Font Awesome
+- **Contact Form**: EmailJS integration
 
-## File Structure
+## 📂 Project Categories
 
-```
-portfolio/
-│
-├── index.html          # Main HTML file
-├── css/
-│   └── style.css       # Main stylesheet
-├── js/
-│   └── script.js       # JavaScript functionality
-└── images/             # Images for the portfolio
-    ├── profile-placeholder.jpg
-    ├── about-placeholder.jpg
-    ├── project1-placeholder.jpg
-    ├── project2-placeholder.jpg
-    └── project3-placeholder.jpg
-```
+- **IoT Systems**: Connected devices and wireless sensor networks
+- **Microcontrollers**: ARM Cortex-M, ESP32, embedded firmware
+- **Hardware Design**: PCB design and circuit development
 
-## Customization Instructions
+## 🎯 Key Skills Highlighted
 
-### 1. Personal Information
+- **Programming**: C/C++, Python, Assembly
+- **Hardware**: ARM Cortex-M, ESP32/Arduino, PCB Design
+- **Protocols**: I2C/SPI/UART, CAN Bus, WiFi/Bluetooth, LoRa
+- **Tools**: JTAG/SWD Debugging, FreeRTOS, Git
 
-Edit the `index.html` file to update:
+## 🚀 Deployment
 
-- Your name (replace "Your Name" in the hero section)
-- Job titles (embedded systems roles are already configured in `script.js`)
-- About Me section with your embedded systems background
-- Contact information (email, phone, location)
-- Social media links (LinkedIn, GitHub for code repositories)
+The site is automatically deployed using GitHub Actions workflow:
 
-### 2. Projects
+- Triggers on push to `master` branch
+- Deploys to GitHub Pages
+- Live updates within minutes of code changes
 
-For each embedded systems project:
+## 📧 Contact
 
-1. Update the project title and technical description
-2. Replace placeholder images with project photos/schematics
-3. Update the category (iot, microcontroller, or hardware)
-4. Add links to GitHub repositories, demo videos, or documentation
-5. Include technical specifications and components used
+Portfolio includes multiple contact methods:
 
-To add more projects, duplicate the project card structure and update the data-category attribute.
+- Email with click-to-copy functionality
+- Phone number
+- Location display
+- Functional contact form
 
-### 3. Skills
+## 📱 Browser Support
 
-Customize the embedded systems skills:
+Compatible with all modern browsers including Chrome, Firefox, Safari, and Edge.
 
-1. Update programming language proficiencies
-2. Add or modify microcontroller platforms you work with
-3. Update communication protocols and tools
-4. Adjust skill progress percentages based on your expertise
+---
 
-### 4. Technical Focus Areas
-
-The portfolio highlights these embedded systems areas:
-- Firmware development and bare-metal programming
-- Real-time operating systems (RTOS)
-- IoT connectivity and wireless protocols
-- Hardware-software integration
-- PCB design and circuit analysis
-- Debugging and testing methodologies
-
-### 4. Styling
-
-Customize colors and styles by editing the CSS variables in `style.css`:
-
-```css
-:root {
-    --primary-color: #007bff;  /* Change this to your preferred color */
-    --secondary-color: #6c757d;
-    --dark-color: #343a40;
-    --light-color: #f8f9fa;
-    /* ...other variables... */
-}
-```
-
-### 5. Images
-
-Replace the placeholder images in the `images` folder with your actual images:
-
-- `profile-placeholder.jpg`: Your profile photo
-- `about-placeholder.jpg`: Image for About section
-- `project1-placeholder.jpg`, `project2-placeholder.jpg`, etc.: Screenshots of your projects
-
-## Contact Form Setup
-
-The contact form in this template doesn't actually send emails by default. To make it functional, you'll need to:
-
-1. Set up a backend service (like PHP, Node.js, or a form submission service)
-2. Update the form action and method in `index.html`
-3. Modify the form submission code in `script.js`
-
-## Browser Compatibility
-
-This portfolio is designed to work on all modern browsers:
-- Chrome
-- Firefox
-- Safari
-- Edge
-
-## License
-
-Feel free to use this template for your personal portfolio.
-
-## Credits
-
-- Font Awesome for icons
-- Google Fonts for typography
+_Built with ❤️ for embedded systems engineers_

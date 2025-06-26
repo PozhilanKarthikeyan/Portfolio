@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Embedded Systems Engineer - Portfolio</title>
+    <title>Pozhilan</title>
     <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
@@ -15,7 +15,7 @@
     <header>
       <div class="container">
         <nav>
-          <div class="logo">Embedded Engineer</div>
+          <div class="logo">Pozhilan</div>
           <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -38,12 +38,20 @@
         <div class="hero-content">
           <h1>Hi, I'm <span class="highlight">Pozhilan Karthikeyan</span></h1>
           <h2>I'm an <span class="typed-text"></span></h2>
-          <p>
-            Passionate embedded systems engineer specializing in microcontroller
-            programming, IoT solutions, and hardware-software integration. I
-            design and develop efficient, reliable embedded systems for various
-            applications.
-          </p>
+          <div class="hero-summary">
+            <h3>
+              Embedded Systems Engineer | B.Tech Electrical Engineering, IIT
+              Madras
+            </h3>
+            <p>
+              Enthusiastic embedded systems engineer and junior at IIT Madras
+              with a strong focus on microcontroller programming, IoT
+              development, and seamless hardware-software integration. I design
+              and build efficient, reliable embedded solutions for Mars rover
+              prototypes and a range of robotics applications, combining
+              innovation with practical engineering.
+            </p>
+          </div>
           <div class="cta-buttons">
             <a href="#contact" class="btn primary-btn">Contact Me</a>
             <a href="#projects" class="btn secondary-btn">View My Work</a>
@@ -57,12 +65,10 @@
               target="_blank"
               ><i class="fab fa-linkedin"></i
             ></a>
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
         <div class="hero-image">
-          <img src="images/profile-placeholder.jpg" alt="Profile Picture" />
+          <img src="images/profile/profile-picture.jpg" alt="Profile Picture" />
         </div>
       </div>
     </section>
@@ -75,19 +81,25 @@
           <div class="about-text">
             <h3>About Pozhilan Karthikeyan</h3>
             <p>
-              I am a passionate embedded systems engineer with expertise in
-              microcontroller programming, IoT solutions, and hardware-software
-              integration. With a strong background in electronics engineering,
-              I specialize in developing efficient, real-time embedded
-              applications using C/C++ and various communication protocols.
+              As an Embedded Systems Team Member at Anveshak, a student-run team
+              at IIT Madras dedicated to developing Mars rover prototypes, I am
+              responsible for designing and managing the embedded systems of a
+              sophisticated 4-wheeled rover equipped with individual steering
+              mechanisms and a 6 Degree of Freedom manipulator. Our innovative
+              student team achieved remarkable success by winning first place
+              and the Best Design Award at the prestigious Shaastra Autonomy
+              Challenge 2025, competing against 20+ top university teams and
+              earning ₹1,50,000 in prize money.
             </p>
             <p>
-              I have a background in Electronics Engineering and have been
-              working in embedded systems development for several years. My
-              expertise spans from bare-metal programming to RTOS
-              implementation, hardware debugging, and PCB design. I'm passionate
-              about creating innovative solutions that bridge the gap between
-              hardware and software.
+              I have had the honor of representing India as part of a 17-member
+              student contingent at the Anatolian Rover Challenge 2024 in
+              Turkey, where our IIT Madras team secured 6th place among 30+
+              international university teams. My technical expertise encompasses
+              bare-metal programming, RTOS implementation, hardware debugging,
+              PCB design, and advanced communication protocols, all applied in
+              demanding competitive robotics environments while pursuing my
+              degree in Electrical Engineering.
             </p>
             <a
               href="https://drive.google.com/file/d/1SDvJYcp2CvootbloMJDGTi1--iHtB9eY/view?usp=sharing"
@@ -96,7 +108,7 @@
             >
           </div>
           <div class="about-image">
-            <img src="images/about-placeholder.jpg" alt="About Me" />
+            <img src="images/profile/about-picture.jpg" alt="About Me" />
           </div>
         </div>
       </div>
@@ -118,23 +130,34 @@
         </div>
         <div class="projects-grid">
           <!-- Project 1 -->
-          <div class="project-card" data-category="iot">
+          <div class="project-card" data-category="microcontroller">
             <div class="project-image">
               <img
-                src="images/project1-placeholder.jpg"
-                alt="IoT Weather Station"
+                src="images/projects/can-bus-system/Mr. Heisenberg.jpeg"
+                alt="CAN Bus Communication System"
               />
             </div>
             <div class="project-info">
-              <h3>IoT Weather Monitoring System</h3>
+              <h3>Scalable CAN-Based Communication System for Mars Rover</h3>
               <p>
-                ESP32-based weather station with DHT22 sensors, real-time data
-                transmission via WiFi, and cloud dashboard integration using
-                MQTT protocol.
+                Engineered ESP32-based motor driver firmware with CAN protocol
+                integration for multi-node communication architecture. Developed
+                real-time motor performance monitoring system utilizing current
+                sensors and pulse counters for precise feedback control.
+                Integrated MCP2515 CAN controller with Raspberry Pi backend
+                using Python for scalable distributed system communication.
               </p>
+              <div class="project-tags">
+                <span class="project-tag">ESP32</span>
+                <span class="project-tag">CAN Bus</span>
+                <span class="project-tag">Python</span>
+                <span class="project-tag">C/C++</span>
+                <span class="project-tag">MCP2515</span>
+                <span class="project-tag">Raspberry Pi</span>
+              </div>
               <div class="project-links">
                 <a href="#" target="_blank"
-                  ><i class="fas fa-microchip"></i> Hardware Details</a
+                  ><i class="fas fa-microchip"></i> Firmware Code</a
                 >
                 <a href="#" target="_blank"
                   ><i class="fab fa-github"></i> Source Code</a
@@ -146,20 +169,25 @@
           <div class="project-card" data-category="microcontroller">
             <div class="project-image">
               <img
-                src="images/project2-placeholder.jpg"
-                alt="RTOS Task Scheduler"
+                src="images/projects/ground-station-protocol/main-image.jpg"
+                alt="Ground Station Communication Protocol"
               />
             </div>
             <div class="project-info">
-              <h3>Real-Time Motor Control System</h3>
+              <h3>
+                Custom Serial Protocol for Ground Station-to-Rover Communication
+              </h3>
               <p>
-                ARM Cortex-M4 based motor control system using FreeRTOS, with
-                precise speed control, encoder feedback, and CAN bus
-                communication.
+                Architected and implemented object-oriented Python communication
+                protocol with robust frame handling capabilities. Designed
+                specialized message classes supporting location and altitude
+                data transmission with comprehensive error handling.
+                Successfully integrated custom protocol with ROS ecosystem for
+                seamless real-time ground station to rover data exchange.
               </p>
               <div class="project-links">
                 <a href="#" target="_blank"
-                  ><i class="fas fa-cogs"></i> Demo Video</a
+                  ><i class="fas fa-satellite-dish"></i> Protocol Demo</a
                 >
                 <a href="#" target="_blank"
                   ><i class="fab fa-github"></i> Source Code</a
@@ -170,18 +198,25 @@
           <!-- Project 3 -->
           <div class="project-card" data-category="hardware">
             <div class="project-image">
-              <img src="images/project3-placeholder.jpg" alt="PCB Design" />
+              <img
+                src="images/projects/fpga-line-following/main-image.jpg"
+                alt="FPGA Line Following Bot"
+              />
             </div>
             <div class="project-info">
-              <h3>Multi-Sensor Data Logger</h3>
+              <h3>FPGA-Based Line Following Bot</h3>
               <p>
-                Custom PCB design with STM32 microcontroller, multiple sensor
-                interfaces, SD card storage, and low-power optimization for
-                battery operation.
+                Developed comprehensive FPGA solution featuring custom UART
+                modules with configurable parity and 8-bit data processing.
+                Implemented precision PWM generation with 4-bit resolution using
+                50MHz clock frequency scaling for motor control applications.
+                Designed finite state machine with integrated frequency counter
+                for TCS3200 color sensor RGB classification and autonomous
+                navigation.
               </p>
               <div class="project-links">
                 <a href="#" target="_blank"
-                  ><i class="fas fa-file-pdf"></i> Schematic</a
+                  ><i class="fas fa-microchip"></i> FPGA Design</a
                 >
                 <a href="#" target="_blank"
                   ><i class="fab fa-github"></i> Source Code</a
@@ -190,26 +225,90 @@
             </div>
           </div>
           <!-- Project 4 -->
-          <div class="project-card" data-category="microcontroller">
+          <div class="project-card" data-category="iot">
             <div class="project-image">
               <img
-                src="images/mars-rover-placeholder.jpg"
-                alt="Mars Rover Simulation"
+                src="images/projects/iot-monitoring/main-image.jpg"
+                alt="IoT Weather Station"
               />
             </div>
             <div class="project-info">
-              <h3>Mars Rover Navigation System</h3>
+              <h3>IoT System for Real-Time Server Room Monitoring</h3>
               <p>
-                Autonomous rover simulation using STM32F4 with ultrasonic
-                sensors, GPS navigation, camera module, and obstacle avoidance
-                algorithms for Mars terrain exploration.
+                Deployed enterprise-grade monitoring solution utilizing ESP32
+                with HTU21D sensors for critical environmental data acquisition
+                via I2C protocol. Implemented secure communication
+                infrastructure featuring HTTP/WebSocket clients with
+                authenticated OTA update capabilities for remote fleet
+                management. Architected RTOS-based concurrent task management
+                with precision software timers ensuring reliable periodic data
+                collection and transmission.
               </p>
               <div class="project-links">
                 <a href="#" target="_blank"
-                  ><i class="fas fa-video"></i> Demo Video</a
+                  ><i class="fas fa-server"></i> Monitoring Demo</a
                 >
                 <a href="#" target="_blank"
                   ><i class="fab fa-github"></i> Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Project 5 -->
+          <div class="project-card" data-category="iot">
+            <div class="project-image">
+              <img
+                src="images/projects/lora-network/main.jpg"
+                alt="LoRa Network Communication"
+              />
+            </div>
+            <div class="project-info">
+              <h3>LoRa Wireless Network with ROS Integration</h3>
+              <p>
+                Engineered robust long-range communication network leveraging
+                ESP32 microcontrollers with E32-433T30D LoRa modules for
+                extended coverage applications. Developed distributed sensor
+                architecture with seamless UART-based data aggregation and
+                central processing capabilities. Successfully integrated sensor
+                network with ROS ecosystem using rosserial, enabling real-time
+                topic publication for advanced robotics applications.
+              </p>
+              <div class="project-links">
+                <a href="#" target="_blank"
+                  ><i class="fas fa-broadcast-tower"></i> Network Demo</a
+                >
+                <a href="#" target="_blank"
+                  ><i class="fab fa-github"></i> Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Project 6 -->
+          <div class="project-card" data-category="hardware">
+            <div class="project-image">
+              <img
+                src="images/projects/smartwatch-pcb/main.png"
+                alt="Smart Watch PCB"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Smart Watch PCB Design</h3>
+              <p>
+                Delivered award-winning smartwatch design securing first place
+                in institute-wide electronics competition among 200+
+                participants. Engineered complete hardware solution featuring
+                ESP-12F microcontroller with integrated IMU sensors, capacitive
+                touch interface, and OLED display using I2C/SPI protocols.
+                Designed comprehensive power management system incorporating
+                MCP73831 charging IC, USB-C connectivity, and advanced ESD
+                protection circuitry for commercial-grade reliability.
+              </p>
+              <div class="project-links">
+                <a href="#" target="_blank"
+                  ><i class="fas fa-file-pdf"></i> PCB Layout</a
+                >
+                <a href="#" target="_blank"
+                  ><i class="fas fa-microchip"></i> Design Files</a
                 >
               </div>
             </div>
@@ -237,14 +336,14 @@
                 <div class="skill-icon"><i class="fab fa-python"></i></div>
                 <h4>Python</h4>
                 <div class="skill-progress">
-                  <div class="progress" style="width: 85%"></div>
+                  <div class="progress" style="width: 88%"></div>
                 </div>
               </div>
               <div class="skill-item">
                 <div class="skill-icon"><i class="fas fa-microchip"></i></div>
-                <h4>Assembly</h4>
+                <h4>Verilog/VHDL</h4>
                 <div class="skill-progress">
-                  <div class="progress" style="width: 80%"></div>
+                  <div class="progress" style="width: 82%"></div>
                 </div>
               </div>
             </div>
@@ -254,29 +353,29 @@
             <div class="skills-grid">
               <div class="skill-item">
                 <div class="skill-icon"><i class="fas fa-microchip"></i></div>
-                <h4>ARM Cortex-M</h4>
+                <h4>ESP32/ESP8266</h4>
                 <div class="skill-progress">
-                  <div class="progress" style="width: 90%"></div>
+                  <div class="progress" style="width: 92%"></div>
                 </div>
               </div>
               <div class="skill-item">
-                <div class="skill-icon"><i class="fas fa-wifi"></i></div>
-                <h4>ESP32/Arduino</h4>
+                <div class="skill-icon"><i class="fas fa-tools"></i></div>
+                <h4>FPGA Development</h4>
                 <div class="skill-progress">
-                  <div class="progress" style="width: 88%"></div>
+                  <div class="progress" style="width: 85%"></div>
                 </div>
               </div>
               <div class="skill-item">
                 <div class="skill-icon"><i class="fas fa-tools"></i></div>
                 <h4>PCB Design</h4>
                 <div class="skill-progress">
-                  <div class="progress" style="width: 75%"></div>
+                  <div class="progress" style="width: 78%"></div>
                 </div>
               </div>
             </div>
           </div>
           <div class="skills-category">
-            <h3>Protocols & Communication</h3>
+            <h3>Communication Protocols</h3>
             <div class="skills-grid">
               <div class="skill-item">
                 <div class="skill-icon">
@@ -284,7 +383,7 @@
                 </div>
                 <h4>I2C/SPI/UART</h4>
                 <div class="skill-progress">
-                  <div class="progress" style="width: 92%"></div>
+                  <div class="progress" style="width: 94%"></div>
                 </div>
               </div>
               <div class="skill-item">
@@ -293,12 +392,42 @@
                 </div>
                 <h4>CAN Bus</h4>
                 <div class="skill-progress">
-                  <div class="progress" style="width: 85%"></div>
+                  <div class="progress" style="width: 87%"></div>
                 </div>
               </div>
               <div class="skill-item">
+                <div class="skill-icon">
+                  <i class="fas fa-broadcast-tower"></i>
+                </div>
+                <h4>LoRa/Long Range</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h3>IoT & Wireless Technologies</h3>
+            <div class="skills-grid">
+              <div class="skill-item">
                 <div class="skill-icon"><i class="fas fa-wifi"></i></div>
-                <h4>WiFi/Bluetooth</h4>
+                <h4>WiFi/HTTP/WebSocket</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 88%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <h4>OTA Updates</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 83%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-share-alt"></i></div>
+                <h4>MQTT Protocol</h4>
                 <div class="skill-progress">
                   <div class="progress" style="width: 80%"></div>
                 </div>
@@ -306,25 +435,77 @@
             </div>
           </div>
           <div class="skills-category">
-            <h3>Development Tools</h3>
+            <h3>Development Tools & IDEs</h3>
             <div class="skills-grid">
               <div class="skill-item">
-                <div class="skill-icon"><i class="fas fa-bug"></i></div>
-                <h4>JTAG/SWD Debugging</h4>
+                <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+                <h4>Arduino IDE</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 92%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+                <h4>ESP-IDF</h4>
                 <div class="skill-progress">
                   <div class="progress" style="width: 88%"></div>
                 </div>
               </div>
               <div class="skill-item">
-                <div class="skill-icon"><i class="fas fa-tasks"></i></div>
-                <h4>FreeRTOS</h4>
+                <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+                <h4>Vivado (Xilinx)</h4>
                 <div class="skill-progress">
                   <div class="progress" style="width: 85%"></div>
                 </div>
               </div>
               <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-tasks"></i></div>
+                <h4>Quartus (Intel)</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h3>Design & Simulation Tools</h3>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-tools"></i></div>
+                <h4>EasyEDA</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                <h4>LTspice</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 78%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h3>Frameworks & Version Control</h3>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-tasks"></i></div>
+                <h4>FreeRTOS</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 86%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon"><i class="fas fa-robot"></i></div>
+                <h4>ROS</h4>
+                <div class="skill-progress">
+                  <div class="progress" style="width: 82%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
                 <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
-                <h4>Git/Version Control</h4>
+                <h4>Git/GitHub</h4>
                 <div class="skill-progress">
                   <div class="progress" style="width: 90%"></div>
                 </div>
@@ -432,7 +613,7 @@
       <div class="container">
         <div class="footer-content">
           <div class="copyright">
-            <p>&copy; 2025 Your Name. All Rights Reserved.</p>
+            <p>&copy; 2025 Pozhilan Karthikeyan. All Rights Reserved.</p>
           </div>
           <div class="social-icons">
             <a href="https://github.com/PozhilanKarthikeyan" target="_blank"
@@ -443,8 +624,6 @@
               target="_blank"
               ><i class="fab fa-linkedin"></i
             ></a>
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
       </div>

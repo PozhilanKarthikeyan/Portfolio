@@ -38,6 +38,7 @@ This message was sent from your portfolio contact form.
 ```
 
 4. Set the template variables:
+
    - `from_name` - Sender's name
    - `from_email` - Sender's email
    - `subject` - Message subject
@@ -56,13 +57,14 @@ This message was sent from your portfolio contact form.
 Open `js/script.js` and replace these placeholders:
 
 1. Replace `YOUR_PUBLIC_KEY` with your actual public key
-2. Replace `YOUR_SERVICE_ID` with your service ID  
+2. Replace `YOUR_SERVICE_ID` with your service ID
 3. Replace `YOUR_TEMPLATE_ID` with your template ID
 
 Example:
+
 ```javascript
 emailjs.init("abcdefghij"); // Your public key
-emailjs.send('service_xxxxxxx', 'template_xxxxxxx', templateParams) // Your service and template IDs
+emailjs.send("service_xxxxxxx", "template_xxxxxxx", templateParams); // Your service and template IDs
 ```
 
 ## Step 6: Test the Form
@@ -82,7 +84,11 @@ If you prefer a simpler solution, you can use Formspree:
 4. Replace the form action in your HTML:
 
 ```html
-<form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<form
+  id="contactForm"
+  action="https://formspree.io/f/YOUR_FORM_ID"
+  method="POST"
+></form>
 ```
 
 ## Security Notes
