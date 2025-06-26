@@ -401,28 +401,55 @@ nav {
 }
 
 .project-image {
-  height: 250px; /* Default height, will be overridden by JavaScript */
+  height: 280px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f8f9fa;
-  border-radius: 10px 10px 0 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px 15px 0 0;
   position: relative;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.project-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 48%,
+    rgba(255, 255, 255, 0.1) 49%,
+    rgba(255, 255, 255, 0.1) 51%,
+    transparent 52%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-image::before {
+  opacity: 1;
 }
 
 .project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
   object-position: center;
-  transition: transform var(--transition-speed);
-  background-color: transparent;
-  border-radius: 10px 10px 0 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  filter: brightness(1) contrast(1.05) saturate(1.1);
 }
 
 .project-card:hover .project-image img {
-  transform: scale(1.1);
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.1) contrast(1.1) saturate(1.2);
 }
 
 .project-info {
@@ -969,7 +996,22 @@ body.dark-mode .project-info {
 }
 
 body.dark-mode .project-image {
-  background-color: var(--card-bg);
+  background: linear-gradient(
+    135deg,
+    var(--card-bg) 0%,
+    var(--secondary-bg) 100%
+  );
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .project-image img {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  filter: brightness(0.9) contrast(1.1) saturate(1.05);
+}
+
+body.dark-mode .project-card:hover .project-image img {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  filter: brightness(1) contrast(1.15) saturate(1.1);
 }
 
 body.dark-mode .about,

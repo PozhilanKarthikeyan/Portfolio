@@ -595,24 +595,31 @@ function setupDynamicImageSizing() {
       // Determine optimal styling based on aspect ratio
       if (aspectRatio > 1.5) {
         // Wide images (landscape)
-        imageContainer.style.height = "200px";
+        imageContainer.style.height = "220px";
         imageContainer.classList.add("wide-image");
-        img.style.objectFit = "contain";
+        img.style.objectFit = "cover";
+        img.style.width = "95%";
+        img.style.height = "85%";
       } else if (aspectRatio < 0.8) {
         // Tall images (portrait)
-        imageContainer.style.height = "300px";
+        imageContainer.style.height = "320px";
         imageContainer.classList.add("tall-image");
-        img.style.objectFit = "contain";
+        img.style.objectFit = "cover";
+        img.style.width = "85%";
+        img.style.height = "95%";
       } else {
-        // Square or moderate rectangular images - fill the container
-        imageContainer.style.height = "250px";
+        // Square or moderate rectangular images
+        imageContainer.style.height = "280px";
         imageContainer.classList.add("square-image");
-        img.style.objectFit = "cover"; // Use cover for square images to fill container
+        img.style.objectFit = "cover";
+        img.style.width = "90%";
+        img.style.height = "90%";
       }
 
-      // Apply consistent styling
-      img.style.width = "100%";
-      img.style.height = "100%";
+      // Apply consistent advanced styling
+      img.style.borderRadius = "12px";
+      img.style.boxShadow = "0 8px 25px rgba(0, 0, 0, 0.15)";
+      img.style.filter = "brightness(1) contrast(1.05) saturate(1.1)";
 
       // Ensure the image is centered
       imageContainer.style.display = "flex";
