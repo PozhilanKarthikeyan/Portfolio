@@ -1,60 +1,45 @@
-# Embedded Systems Engineer Portfolio
+# Portfolio - Pozhilan Karthikeyan
 
-A modern, responsive portfolio website showcasing embedded systems engineering expertise.
+Professional portfolio showcasing embedded systems engineering projects and expertise.
 
-## 🌐 Live Website
+## 🌐 Live Site
+[https://pozhilankarthikeyan.github.io/Portfolio/](https://pozhilankarthikeyan.github.io/Portfolio/)
 
-**Visit the live portfolio:** [https://pozhilankarthikeyan.github.io/Portfolio/](https://pozhilankarthikeyan.github.io/Portfolio/)
-
-## 🚀 Features
-
-- **Responsive Design**: Works seamlessly across all devices
-- **Project Showcase**: Categorized embedded systems projects (IoT, Microcontrollers, Hardware)
-- **Skills Display**: Visual representation of technical expertise
-- **Contact Integration**: Multiple contact methods with click-to-copy functionality
-- **Modern UI**: Smooth animations and professional design
-
-## 🛠️ Tech Stack
-
+## �️ Tech Stack
 - **Frontend**: HTML5, CSS3, JavaScript
-- **Deployment**: GitHub Pages with GitHub Actions
-- **Icons**: Font Awesome
-- **Contact Form**: EmailJS integration
+- **Icons**: Font Awesome 6.4.0
+- **Email**: EmailJS integration
+- **Deployment**: GitHub Pages
 
-## 📂 Project Categories
+## 📁 Structure
+```
+portfolio/
+├── index.html           # Main portfolio page
+├── css/
+│   └── style-clean.css  # Main stylesheet
+├── js/
+│   └── script.js        # Interactive functionality
+└── media/
+    ├── profile/         # Profile pictures
+    └── projects/        # Project showcase images
+```
 
-- **IoT Systems**: Connected devices and wireless sensor networks
-- **Microcontrollers**: ARM Cortex-M, ESP32, embedded firmware
-- **Hardware Design**: PCB design and circuit development
+## 🎯 Features
+- **Responsive Design**: Mobile-first approach
+- **Project Filtering**: IoT, Microcontrollers, Hardware categories
+- **Contact Form**: Functional with EmailJS
+- **Modern UI**: Clean animations and professional styling
 
-## 🎯 Key Skills Highlighted
+## 🚀 Development
+```bash
+# Clone repository
+git clone https://github.com/PozhilanKarthikeyan/Portfolio.git
 
-- **Programming**: C/C++, Python, Assembly
-- **Hardware**: ARM Cortex-M, ESP32/Arduino, PCB Design
-- **Protocols**: I2C/SPI/UART, CAN Bus, WiFi/Bluetooth, LoRa
-- **Tools**: JTAG/SWD Debugging, FreeRTOS, Git
-
-## 🚀 Deployment
-
-The site is automatically deployed using GitHub Actions workflow:
-
-- Triggers on push to `master` branch
-- Deploys to GitHub Pages
-- Live updates within minutes of code changes
+# Open locally
+# Simply open index.html in any modern browser
+```
 
 ## 📧 Contact
-
-Portfolio includes multiple contact methods:
-
-- Email with click-to-copy functionality
-- Phone number
-- Location display
-- Functional contact form
-
-## 📱 Browser Support
-
-Compatible with all modern browsers including Chrome, Firefox, Safari, and Edge.
-
----
-
-_Built with ❤️ for embedded systems engineers_
+- **Email**: pozhilankarthikeyan2005@gmail.com
+- **LinkedIn**: [pozhilan-karthikeyan](https://www.linkedin.com/in/pozhilan-karthikeyan-905b6735a/)
+- **GitHub**: [PozhilanKarthikeyan](https://github.com/PozhilanKarthikeyan)

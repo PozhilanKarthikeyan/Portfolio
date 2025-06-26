@@ -73,7 +73,15 @@ filterBtns.forEach((btn) => {
     // Show/hide projects based on filter
     projectCards.forEach((card) => {
       if (filter === "all" || card.getAttribute("data-category") === filter) {
-        card.style.display = "block";
+        if (card.classList.contains("image-left")) {
+          card.style.display = "flex";
+          card.style.flexDirection = "row";
+        } else if (card.classList.contains("image-right")) {
+          card.style.display = "flex";
+          card.style.flexDirection = "row-reverse";
+        } else {
+          card.style.display = "flex";
+        }
       } else {
         card.style.display = "none";
       }
@@ -592,28 +600,28 @@ function setupDynamicImageSizing() {
       // Remove loading state
       imageContainer.classList.remove("loading");
 
-      // Determine optimal styling based on aspect ratio
+      // Determine optimal styling based on aspect ratio - ALL IMAGES USE CONTAIN
       if (aspectRatio > 1.5) {
         // Wide images (landscape)
-        imageContainer.style.height = "220px";
+        imageContainer.style.height = "240px";
         imageContainer.classList.add("wide-image");
-        img.style.objectFit = "cover";
-        img.style.width = "95%";
-        img.style.height = "85%";
+        img.style.objectFit = "contain"; // Changed from cover to contain
+        img.style.width = "100%";
+        img.style.height = "100%";
       } else if (aspectRatio < 0.8) {
         // Tall images (portrait)
-        imageContainer.style.height = "320px";
+        imageContainer.style.height = "300px";
         imageContainer.classList.add("tall-image");
-        img.style.objectFit = "cover";
-        img.style.width = "85%";
-        img.style.height = "95%";
+        img.style.objectFit = "contain"; // Changed from cover to contain
+        img.style.width = "100%";
+        img.style.height = "100%";
       } else {
         // Square or moderate rectangular images
         imageContainer.style.height = "280px";
         imageContainer.classList.add("square-image");
-        img.style.objectFit = "cover";
-        img.style.width = "90%";
-        img.style.height = "90%";
+        img.style.objectFit = "contain"; // Changed from cover to contain
+        img.style.width = "100%";
+        img.style.height = "100%";
       }
 
       // Apply consistent advanced styling
@@ -641,12 +649,17 @@ function setupDynamicImageSizing() {
       console.warn(`Failed to load image: ${img.src}`);
       // Remove loading state and apply fallback styling
       imageContainer.classList.remove("loading");
-      imageContainer.style.height = "250px";
+      imageContainer.style.height = "280px";
       imageContainer.style.display = "flex";
       imageContainer.style.alignItems = "center";
       imageContainer.style.justifyContent = "center";
       imageContainer.style.backgroundColor = "#f0f0f0";
       imageContainer.classList.add("error-image");
+
+      // Set fallback to contain for error images too
+      img.style.objectFit = "contain";
+      img.style.width = "100%";
+      img.style.height = "100%";
     };
 
     // Set the source to trigger loading

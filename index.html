@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pozhilan</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style-clean.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -68,7 +68,7 @@
           </div>
         </div>
         <div class="hero-image">
-          <img src="images/profile/profile-picture.jpg" alt="Profile Picture" />
+          <img src="media/profile/profile-picture.jpg" alt="Profile Picture" />
         </div>
       </div>
     </section>
@@ -78,37 +78,133 @@
       <div class="container">
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
-          <div class="about-text">
-            <h3>About Pozhilan Karthikeyan</h3>
-            <p>
-              As an Embedded Systems Team Member at Anveshak, a student-run team
-              at IIT Madras dedicated to developing Mars rover prototypes, I am
-              responsible for designing and managing the embedded systems of a
-              sophisticated 4-wheeled rover equipped with individual steering
-              mechanisms and a 6 Degree of Freedom manipulator. Our innovative
-              student team achieved remarkable success by winning first place
-              and the Best Design Award at the prestigious Shaastra Autonomy
-              Challenge 2025, competing against 20+ top university teams and
-              earning ₹1,50,000 in prize money.
-            </p>
-            <p>
-              I have had the honor of representing India as part of a 17-member
-              student contingent at the Anatolian Rover Challenge 2024 in
-              Turkey, where our IIT Madras team secured 6th place among 30+
-              international university teams. My technical expertise encompasses
-              bare-metal programming, RTOS implementation, hardware debugging,
-              PCB design, and advanced communication protocols, all applied in
-              demanding competitive robotics environments while pursuing my
-              degree in Electrical Engineering.
-            </p>
-            <a
-              href="https://drive.google.com/file/d/1SDvJYcp2CvootbloMJDGTi1--iHtB9eY/view?usp=sharing"
-              class="btn primary-btn"
-              >Download Resume</a
-            >
-          </div>
-          <div class="about-image">
-            <img src="images/profile/about-picture.jpg" alt="About Me" />
+          <div class="about-main">
+            <!-- Personal Introduction Card -->
+            <div class="about-intro-card">
+              <div class="intro-header">
+                <div class="profile-badge">
+                  <i class="fas fa-user-graduate"></i>
+                </div>
+                <h3>Pozhilan Karthikeyan</h3>
+                <p class="intro-subtitle">
+                  Embedded Systems Engineer & B.Tech Student at IIT Madras
+                </p>
+              </div>
+              <div class="intro-description">
+                <p>
+                  Passionate about designing cutting-edge embedded systems for
+                  Mars rover prototypes and robotics applications. Currently
+                  pursuing Electrical Engineering at IIT Madras while
+                  contributing to breakthrough innovations in competitive
+                  robotics.
+                </p>
+              </div>
+            </div>
+
+            <!-- Achievements Grid -->
+            <div class="achievements-grid">
+              <div class="achievement-card trophy">
+                <div class="achievement-icon">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <div class="achievement-content">
+                  <h4>1st Place Winner</h4>
+                  <p>Shaastra Autonomy Challenge 2025</p>
+                  <span class="achievement-detail"
+                    >₹1,50,000 Prize Money + Best Design Award</span
+                  >
+                </div>
+              </div>
+
+              <div class="achievement-card global">
+                <div class="achievement-icon">
+                  <i class="fas fa-globe-americas"></i>
+                </div>
+                <div class="achievement-content">
+                  <h4>International Competitor</h4>
+                  <p>Anatolian Rover Challenge 2024, Turkey</p>
+                  <span class="achievement-detail"
+                    >6th Place among 30+ Global Teams</span
+                  >
+                </div>
+              </div>
+
+              <div class="achievement-card team">
+                <div class="achievement-icon">
+                  <i class="fas fa-rocket"></i>
+                </div>
+                <div class="achievement-content">
+                  <h4>Team Anveshak</h4>
+                  <p>Embedded Systems Team Member</p>
+                  <span class="achievement-detail"
+                    >Mars Rover Development Team</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Technical Journey -->
+            <div class="technical-journey">
+              <h4><i class="fas fa-microchip"></i> My Technical Journey</h4>
+              <div class="journey-content">
+                <div class="journey-item">
+                  <div class="journey-number">01</div>
+                  <div class="journey-text">
+                    <h5>Rover Systems Architecture</h5>
+                    <p>
+                      Designing embedded systems for sophisticated 4-wheeled
+                      rovers with individual steering mechanisms and 6-DOF
+                      manipulators
+                    </p>
+                  </div>
+                </div>
+
+                <div class="journey-item">
+                  <div class="journey-number">02</div>
+                  <div class="journey-text">
+                    <h5>Competition Excellence</h5>
+                    <p>
+                      Leading technical innovations that secured first place at
+                      national competitions and international recognition
+                    </p>
+                  </div>
+                </div>
+
+                <div class="journey-item">
+                  <div class="journey-number">03</div>
+                  <div class="journey-text">
+                    <h5>Advanced Implementation</h5>
+                    <p>
+                      Expertise in bare-metal programming, RTOS, hardware
+                      debugging, PCB design, and communication protocols
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="about-cta-section">
+              <div class="cta-content">
+                <h4>Let's Build Something Amazing Together</h4>
+                <p>
+                  Interested in embedded systems, robotics, or competitive
+                  engineering? Let's connect!
+                </p>
+              </div>
+              <div class="cta-buttons">
+                <a
+                  href="https://drive.google.com/file/d/1SDvJYcp2CvootbloMJDGTi1--iHtB9eY/view?usp=sharing"
+                  class="btn primary-btn"
+                  target="_blank"
+                >
+                  <i class="fas fa-download"></i> Download Resume
+                </a>
+                <a href="#contact" class="btn secondary-btn">
+                  <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -130,34 +226,35 @@
         </div>
         <div class="projects-grid">
           <!-- Project 1 -->
-          <div class="project-card" data-category="microcontroller">
+          <div class="project-card image-left" data-category="microcontroller">
             <div class="project-image">
               <img
-                src="images/projects/can-bus-system/Mr. Heisenberg.jpeg"
+                src="media/projects/can-bus-system/main-image.jpg"
                 alt="CAN Bus Communication System"
               />
             </div>
             <div class="project-info">
-              <h3>Scalable CAN-Based Communication System for Mars Rover</h3>
+              <h3>CAN Bus Communication System for Automotive Applications</h3>
               <p>
-                Engineered ESP32-based motor driver firmware with CAN protocol
-                integration for multi-node communication architecture. Developed
-                real-time motor performance monitoring system utilizing current
-                sensors and pulse counters for precise feedback control.
-                Integrated MCP2515 CAN controller with Raspberry Pi backend
-                using Python for scalable distributed system communication.
+                Engineered high-speed vehicular network using MCP2515 CAN
+                controllers interfaced with Arduino microcontrollers via SPI
+                protocol. Implemented robust multi-node communication
+                architecture supporting prioritized message transmission with
+                built-in collision detection and automatic arbitration.
+                Developed comprehensive data logging system with real-time CAN
+                frame analysis for automotive diagnostic applications.
               </p>
               <div class="project-tags">
-                <span class="project-tag">ESP32</span>
                 <span class="project-tag">CAN Bus</span>
-                <span class="project-tag">Python</span>
-                <span class="project-tag">C/C++</span>
                 <span class="project-tag">MCP2515</span>
-                <span class="project-tag">Raspberry Pi</span>
+                <span class="project-tag">Arduino</span>
+                <span class="project-tag">SPI</span>
+                <span class="project-tag">Automotive</span>
+                <span class="project-tag">Protocol</span>
               </div>
               <div class="project-links">
                 <a href="#" target="_blank"
-                  ><i class="fas fa-microchip"></i> Firmware Code</a
+                  ><i class="fas fa-car"></i> System Demo</a
                 >
                 <a href="#" target="_blank"
                   ><i class="fab fa-github"></i> Source Code</a
@@ -166,12 +263,15 @@
             </div>
           </div>
           <!-- Project 2 -->
-          <div class="project-card" data-category="microcontroller">
+          <div class="project-card image-right" data-category="microcontroller">
             <div class="project-image">
               <img
-                src="images/projects/ground-station-protocol/main-image.jpg"
+                src="media/projects/ground-station-protocol/main-image.jpg"
                 alt="Ground Station Communication Protocol"
               />
+              <div class="image-attribution">
+                <small>Custom Project Image</small>
+              </div>
             </div>
             <div class="project-info">
               <h3>
@@ -207,10 +307,10 @@
             </div>
           </div>
           <!-- Project 3 -->
-          <div class="project-card" data-category="hardware">
+          <div class="project-card image-left" data-category="hardware">
             <div class="project-image">
               <img
-                src="images/projects/fpga-line-following/main-image.png"
+                src="media/projects/fpga-line-following/main-image.png"
                 alt="FPGA Line Following Bot"
               />
             </div>
@@ -246,12 +346,23 @@
             </div>
           </div>
           <!-- Project 4 -->
-          <div class="project-card" data-category="iot">
+          <div class="project-card image-right" data-category="iot">
             <div class="project-image">
               <img
-                src="images/projects/iot-monitoring/main-image.jpg"
+                src="media/projects/iot-monitoring/main-image.jpg"
                 alt="IoT Weather Station"
               />
+              <div class="image-attribution">
+                <small
+                  >Image:
+                  <a
+                    href="https://www.electronics-lab.com/whitepaper-heightening-security-iot-networks/"
+                    target="_blank"
+                    style="color: inherit"
+                    >Electronics-Lab.com</a
+                  ></small
+                >
+              </div>
             </div>
             <div class="project-info">
               <h3>IoT System for Real-Time Server Room Monitoring</h3>
@@ -284,10 +395,10 @@
             </div>
           </div>
           <!-- Project 5 -->
-          <div class="project-card" data-category="iot">
+          <div class="project-card image-left" data-category="iot">
             <div class="project-image">
               <img
-                src="images/projects/lora-network/main.jpg"
+                src="media/projects/lora-network/main-image.jpg"
                 alt="LoRa Network Communication"
               />
             </div>
@@ -323,10 +434,10 @@
             </div>
           </div>
           <!-- Project 6 -->
-          <div class="project-card" data-category="hardware">
+          <div class="project-card image-right" data-category="hardware">
             <div class="project-image">
               <img
-                src="images/projects/smartwatch-pcb/main.png"
+                src="media/projects/smartwatch-pcb/main-image.png"
                 alt="Smart Watch PCB"
               />
             </div>
@@ -353,7 +464,7 @@
               </div>
               <div class="project-links">
                 <a
-                  href="images/projects/smartwatch-pcb/smartwatch-pcb-layout.pdf"
+                  href="media/projects/smartwatch-pcb/smartwatch-pcb-layout.pdf"
                   target="_blank"
                   ><i class="fas fa-file-pdf"></i> PCB Layout</a
                 >
@@ -664,6 +775,19 @@
         <div class="footer-content">
           <div class="copyright">
             <p>&copy; 2025 Pozhilan Karthikeyan. All Rights Reserved.</p>
+            <small class="image-credits">
+              Some images:
+              <a
+                href="https://www.flickr.com/photos/rdmarsh/5662914060"
+                target="_blank"
+                >Flickr/rdmarsh</a
+              >,
+              <a
+                href="https://www.electronics-lab.com/whitepaper-heightening-security-iot-networks/"
+                target="_blank"
+                >Electronics-Lab</a
+              >
+            </small>
           </div>
           <div class="social-icons">
             <a href="https://github.com/PozhilanKarthikeyan" target="_blank"
