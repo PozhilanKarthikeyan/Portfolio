@@ -213,7 +213,12 @@ nav {
   right: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 70%, transparent 100%);
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.15) 0%,
+    rgba(59, 130, 246, 0.05) 70%,
+    transparent 100%
+  );
   border-radius: 50%;
   filter: blur(60px);
   z-index: 0;
@@ -227,7 +232,12 @@ nav {
   left: -5%;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(30, 64, 175, 0.05) 70%, transparent 100%);
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(30, 64, 175, 0.05) 70%,
+    transparent 100%
+  );
   border-radius: 50%;
   filter: blur(60px);
   z-index: 0;
@@ -235,9 +245,15 @@ nav {
 }
 
 @keyframes floatBubble {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(5%, 3%) scale(1.05); }
-  100% { transform: translate(-3%, 5%) scale(0.95); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(5%, 3%) scale(1.05);
+  }
+  100% {
+    transform: translate(-3%, 5%) scale(0.95);
+  }
 }
 
 .hero .container {
@@ -254,11 +270,11 @@ nav {
 }
 
 @keyframes fadeInLeft {
-  from { 
+  from {
     opacity: 0;
     transform: translateX(-30px);
   }
-  to { 
+  to {
     opacity: 1;
     transform: translateX(0);
   }
@@ -287,8 +303,14 @@ nav {
 }
 
 @keyframes pulse {
-  0% { transform: scale(0.95); opacity: 0.1; }
-  100% { transform: scale(1.05); opacity: 0.2; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 0.2;
+  }
 }
 
 .hero-image img {
@@ -359,8 +381,14 @@ nav {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-summary:hover {
@@ -492,7 +520,11 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.6) 0%, rgba(139, 92, 246, 0.6) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.6) 0%,
+    rgba(139, 92, 246, 0.6) 100%
+  );
   z-index: -1;
   transition: opacity 0.3s ease;
   opacity: 0;
@@ -1238,27 +1270,27 @@ footer {
   .hero h2 {
     font-size: 1.5rem;
   }
-  
+
   .hero-image::before {
     width: 320px;
     height: 320px;
   }
-  
+
   .hero-image img {
     max-width: 280px;
     max-height: 280px;
     border-radius: 50%;
   }
-  
+
   .hero-summary {
     padding: 1.5rem;
     margin: 1.5rem 0;
   }
-  
+
   .cta-buttons {
     justify-content: center;
   }
-  
+
   .about-content {
     text-align: center;
   }

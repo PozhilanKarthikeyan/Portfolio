@@ -1,45 +1,52 @@
 # Portfolio - Pozhilan Karthikeyan
 
-Professional portfolio showcasing embedded systems engineering projects and expertise.
+Clean, responsive portfolio showcasing embedded systems engineering projects and expertise.
 
-## 🌐 Live Site
-[https://pozhilankarthikeyan.github.io/Portfolio/](https://pozhilankarthikeyan.github.io/Portfolio/)
+## 🌐 Live Demo
+
+[View Portfolio](https://pozhilankarthikeyan.github.io/Portfolio/)
 
 ## �️ Tech Stack
+
 - **Frontend**: HTML5, CSS3, JavaScript
 - **Icons**: Font Awesome 6.4.0
-- **Email**: EmailJS integration
+- **Contact**: EmailJS integration
 - **Deployment**: GitHub Pages
 
-## 📁 Structure
+## 📁 Project Structure
+
 ```
 portfolio/
 ├── index.html           # Main portfolio page
 ├── css/
-│   └── style-clean.css  # Main stylesheet
+│   └── style-clean.css  # Responsive stylesheet
 ├── js/
 │   └── script.js        # Interactive functionality
 └── media/
-    ├── profile/         # Profile pictures
+    ├── profile/         # Profile images
     └── projects/        # Project showcase images
 ```
 
-## 🎯 Features
-- **Responsive Design**: Mobile-first approach
-- **Project Filtering**: IoT, Microcontrollers, Hardware categories
-- **Contact Form**: Functional with EmailJS
-- **Modern UI**: Clean animations and professional styling
+## ✨ Features
 
-## 🚀 Development
+- **Responsive Design**: Mobile-first, cross-device compatibility
+- **Project Filtering**: IoT, Microcontrollers, Hardware categories
+- **Contact Form**: Functional email integration
+- **Modern UI**: Clean design with smooth animations
+
+## 🚀 Local Development
+
 ```bash
 # Clone repository
 git clone https://github.com/PozhilanKarthikeyan/Portfolio.git
 
-# Open locally
-# Simply open index.html in any modern browser
+# Open in browser
+# Simply open index.html in any modern web browser
 ```
 
 ## 📧 Contact
-- **Email**: pozhilankarthikeyan2005@gmail.com
-- **LinkedIn**: [pozhilan-karthikeyan](https://www.linkedin.com/in/pozhilan-karthikeyan-905b6735a/)
-- **GitHub**: [PozhilanKarthikeyan](https://github.com/PozhilanKarthikeyan)
+
+**Pozhilan Karthikeyan**
+- Email: pozhilankarthikeyan2005@gmail.com
+- LinkedIn: [pozhilan-karthikeyan](https://www.linkedin.com/in/pozhilan-karthikeyan-905b6735a/)
+- GitHub: [PozhilanKarthikeyan](https://github.com/PozhilanKarthikeyan)
