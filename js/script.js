@@ -89,37 +89,46 @@ filterBtns.forEach((btn) => {
   });
 });
 
+// Initialize EmailJS
+function initializeEmailJS() {
+  try {
+    // Initialize EmailJS with your public key
+    emailjs.init("5ZpqVzBXmfNDK6vTj"); // Replace with your actual public key
+    window.emailjsConfigured = true;
+    console.log("EmailJS initialized successfully");
+  } catch (error) {
+    console.warn("EmailJS initialization failed:", error);
+    window.emailjsConfigured = false;
+  }
+}
+
+// Initialize EmailJS when the page loads
+window.addEventListener('load', () => {
+  if (typeof emailjs !== "undefined") {
+    initializeEmailJS();
+  }
+});
+
 // Contact form submission
 if (contactForm) {
-  // Initialize EmailJS (you need to replace with your actual keys)
-  // emailjs.init("YOUR_PUBLIC_KEY"); // Uncomment and add your EmailJS public key
-
-  contactForm.addEventListener("submit", (e) => {
+  contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Get form values
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const subject = document.getElementById("subject").value;
-    const message = document.getElementById("message").value;
+    // Get form values and trim whitespace
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-    // Basic form validation
-    if (!name || !email || !subject || !message) {
-      showNotification("Please fill out all fields", "error");
-      return;
-    }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      showNotification("Please enter a valid email address", "error");
+    // Enhanced form validation
+    if (!validateForm(name, email, subject, message)) {
       return;
     }
 
     // Check if EmailJS is configured
     if (typeof emailjs !== "undefined" && window.emailjsConfigured) {
       // Use EmailJS if configured
-      sendEmailWithEmailJS(name, email, subject, message);
+      await sendEmailWithEmailJS(name, email, subject, message);
     } else {
       // Fallback to mailto
       sendEmailWithMailto(name, email, subject, message);
@@ -127,12 +136,61 @@ if (contactForm) {
   });
 }
 
-// EmailJS implementation
-function sendEmailWithEmailJS(name, email, subject, message) {
+// Enhanced form validation
+function validateForm(name, email, subject, message) {
+  // Check for empty fields
+  if (!name || !email || !subject || !message) {
+    showNotification("Please fill out all fields", "error");
+    return false;
+  }
+
+  // Validate name (at least 2 characters, no numbers at start)
+  if (name.length < 2) {
+    showNotification("Please enter a valid name (at least 2 characters)", "error");
+    return false;
+  }
+
+  // Enhanced email validation
+  const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  if (!emailRegex.test(email)) {
+    showNotification("Please enter a valid email address", "error");
+    return false;
+  }
+
+  // Validate subject length
+  if (subject.length < 3) {
+    showNotification("Subject must be at least 3 characters long", "error");
+    return false;
+  }
+
+  // Validate message length
+  if (message.length < 10) {
+    showNotification("Message must be at least 10 characters long", "error");
+    return false;
+  }
+
+  // Check for spam-like content
+  const spamKeywords = ['click here', 'buy now', 'limited time', 'act now', 'free money'];
+  const messageToCheck = (subject + ' ' + message).toLowerCase();
+  for (const keyword of spamKeywords) {
+    if (messageToCheck.includes(keyword)) {
+      showNotification("Message appears to contain spam content. Please revise your message.", "error");
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// Enhanced EmailJS implementation
+async function sendEmailWithEmailJS(name, email, subject, message) {
   const submitBtn = contactForm.querySelector('button[type="submit"]');
   const originalText = submitBtn.textContent;
-  submitBtn.textContent = "Sending...";
+  
+  // Update UI to show loading state
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
   submitBtn.disabled = true;
+  contactForm.style.opacity = '0.7';
 
   const templateParams = {
     from_name: name,
@@ -140,98 +198,265 @@ function sendEmailWithEmailJS(name, email, subject, message) {
     subject: subject,
     message: message,
     to_email: "pozhilankarthikeyan2005@gmail.com",
+    reply_to: email,
+    // Add timestamp for tracking
+    timestamp: new Date().toLocaleString()
   };
 
-  emailjs
-    .send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
-    .then((response) => {
-      console.log("Email sent successfully:", response);
-      showNotification(
-        "Message sent successfully! I will get back to you soon.",
-        "success"
-      );
-      contactForm.reset();
-    })
-    .catch((error) => {
-      console.error("Email sending failed:", error);
-      showNotification(
-        "Failed to send message. Redirecting to email client...",
-        "error"
-      );
-      // Fallback to mailto if EmailJS fails
-      setTimeout(
-        () => sendEmailWithMailto(name, email, subject, message),
-        2000
-      );
-    })
-    .finally(() => {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-    });
+  try {
+    // Show initial sending notification
+    showNotification("Sending your message...", "info");
+
+    const response = await emailjs.send(
+      "service_portfolio", // Replace with your actual service ID
+      "template_contact", // Replace with your actual template ID
+      templateParams
+    );
+
+    console.log("Email sent successfully:", response);
+    
+    // Success feedback
+    showNotification(
+      "✅ Message sent successfully! I'll get back to you within 24 hours.",
+      "success"
+    );
+    
+    // Reset form and add success animation
+    contactForm.reset();
+    contactForm.classList.add('form-success');
+    setTimeout(() => contactForm.classList.remove('form-success'), 3000);
+
+    // Track successful submission (for analytics)
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'contact_form_success', {
+        'event_category': 'engagement',
+        'event_label': 'email_sent'
+      });
+    }
+
+  } catch (error) {
+    console.error("Email sending failed:", error);
+    
+    // Detailed error handling
+    let errorMessage = "Failed to send message. ";
+    
+    if (error.text) {
+      if (error.text.includes('rate limit')) {
+        errorMessage += "Too many requests. Please wait a moment and try again.";
+      } else if (error.text.includes('invalid')) {
+        errorMessage += "Invalid email configuration. Please try the contact methods below.";
+      } else {
+        errorMessage += "Opening your email client as backup...";
+      }
+    } else {
+      errorMessage += "Opening your email client as backup...";
+    }
+    
+    showNotification(errorMessage, "error");
+    
+    // Fallback to mailto after a short delay
+    setTimeout(() => {
+      sendEmailWithMailto(name, email, subject, message);
+    }, 2000);
+
+    // Track failed submission (for analytics)
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'contact_form_error', {
+        'event_category': 'engagement',
+        'event_label': 'email_failed',
+        'value': error.text || 'unknown_error'
+      });
+    }
+
+  } finally {
+    // Reset UI state
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
+    contactForm.style.opacity = '1';
+  }
 }
 
-// Mailto fallback implementation
+// Enhanced mailto fallback implementation
 function sendEmailWithMailto(name, email, subject, message) {
-  const emailBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(
-    message
-  )}`;
+  // Enhanced email body with better formatting
+  const emailBody = encodeURIComponent(`Dear Pozhilan,
+
+I hope this message finds you well. I'm reaching out through your portfolio website.
+
+CONTACT DETAILS:
+Name: ${name}
+Email: ${email}
+
+SUBJECT: ${subject}
+
+MESSAGE:
+${message}
+
+---
+This message was sent through your portfolio contact form.
+Best regards,
+${name}`);
+
   const mailtoLink = `mailto:pozhilankarthikeyan2005@gmail.com?subject=${encodeURIComponent(
-    subject
+    `Portfolio Contact: ${subject}`
   )}&body=${emailBody}`;
 
   // Open default email client
-  window.location.href = mailtoLink;
+  try {
+    window.open(mailtoLink, '_self');
+    
+    // Show success message with instructions
+    showNotification(
+      "📧 Opening your email client. Please send the pre-filled email to complete your message.",
+      "success"
+    );
 
-  // Show success message
-  showNotification(
-    "Opening your email client. Please send the email to complete your message.",
-    "success"
-  );
+    // Track mailto usage (for analytics)
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'contact_form_mailto', {
+        'event_category': 'engagement',
+        'event_label': 'mailto_used'
+      });
+    }
+
+  } catch (error) {
+    console.error("Failed to open email client:", error);
+    
+    // Show manual contact information as last resort
+    showNotification(
+      "Please manually send an email to: pozhilankarthikeyan2005@gmail.com",
+      "info"
+    );
+    
+    // Copy email to clipboard as additional help
+    copyToClipboard("pozhilankarthikeyan2005@gmail.com", "Email address copied to clipboard!");
+  }
 
   // Reset form after a delay
   setTimeout(() => {
     contactForm.reset();
-  }, 1000);
+    contactForm.classList.add('form-reset');
+    setTimeout(() => contactForm.classList.remove('form-reset'), 1000);
+  }, 1500);
 }
 
-// Notification function
+// Enhanced notification function with better UX
 function showNotification(message, type) {
   // Remove existing notifications
-  const existingNotification = document.querySelector(".notification");
-  if (existingNotification) {
-    existingNotification.remove();
-  }
+  const existingNotifications = document.querySelectorAll(".notification");
+  existingNotifications.forEach(notification => {
+    notification.style.transform = "translateX(100%)";
+    setTimeout(() => notification.remove(), 300);
+  });
 
-  // Create notification element
+  // Create notification element with improved styling
   const notification = document.createElement("div");
   notification.className = `notification ${type}`;
+  
+  // Add appropriate icon based on type
+  let icon = '';
+  switch(type) {
+    case 'success':
+      icon = '<i class="fas fa-check-circle"></i>';
+      break;
+    case 'error':
+      icon = '<i class="fas fa-exclamation-triangle"></i>';
+      break;
+    case 'info':
+      icon = '<i class="fas fa-info-circle"></i>';
+      break;
+    default:
+      icon = '<i class="fas fa-bell"></i>';
+  }
+  
   notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-message">${message}</span>
-            <button class="notification-close">&times;</button>
-        </div>
-    `;
+    <div class="notification-content">
+      <div class="notification-icon">${icon}</div>
+      <span class="notification-message">${message}</span>
+      <button class="notification-close" aria-label="Close notification">&times;</button>
+    </div>
+  `;
 
-  // Add notification styles
-  notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 15px 20px;
-        border-radius: 5px;
-        color: white;
-        font-weight: 500;
-        z-index: 10000;
-        max-width: 400px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        ${
-          type === "success"
-            ? "background-color: #28a745;"
-            : "background-color: #dc3545;"
-        }
-    `;
+  // Enhanced notification styles
+  const baseStyles = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 16px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    z-index: 10000;
+    max-width: 400px;
+    min-width: 300px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    transform: translateX(100%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+  `;
+
+  let typeStyles = '';
+  switch(type) {
+    case 'success':
+      typeStyles = 'background: linear-gradient(135deg, #28a745 0%, #20c997 100%);';
+      break;
+    case 'error':
+      typeStyles = 'background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);';
+      break;
+    case 'info':
+      typeStyles = 'background: linear-gradient(135deg, #17a2b8 0%, #3498db 100%);';
+      break;
+    default:
+      typeStyles = 'background: linear-gradient(135deg, #6c757d 0%, #495057 100%);';
+  }
+
+  notification.style.cssText = baseStyles + typeStyles;
+
+  // Style the notification content
+  const content = notification.querySelector('.notification-content');
+  content.style.cssText = `
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  `;
+
+  // Style the icon
+  const iconElement = notification.querySelector('.notification-icon');
+  iconElement.style.cssText = `
+    font-size: 18px;
+    opacity: 0.9;
+  `;
+
+  // Style the message
+  const messageElement = notification.querySelector('.notification-message');
+  messageElement.style.cssText = `
+    flex: 1;
+    line-height: 1.4;
+  `;
+
+  // Style the close button
+  const closeBtn = notification.querySelector(".notification-close");
+  closeBtn.style.cssText = `
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  `;
+
+  closeBtn.addEventListener('mouseenter', () => closeBtn.style.opacity = '1');
+  closeBtn.addEventListener('mouseleave', () => closeBtn.style.opacity = '0.8');
 
   // Add to page
   document.body.appendChild(notification);
@@ -242,28 +467,27 @@ function showNotification(message, type) {
   }, 100);
 
   // Close button functionality
-  const closeBtn = notification.querySelector(".notification-close");
-  closeBtn.style.cssText = `
-        background: none;
-        border: none;
-        color: white;
-        font-size: 18px;
-        cursor: pointer;
-        margin-left: 10px;
-        padding: 0;
-    `;
-
   closeBtn.addEventListener("click", () => {
     notification.style.transform = "translateX(100%)";
-    setTimeout(() => notification.remove(), 300);
+    setTimeout(() => {
+      if (notification.parentNode) {
+        notification.remove();
+      }
+    }, 300);
   });
-  // Auto remove after 5 seconds
+
+  // Auto remove based on message length and type
+  const autoRemoveDelay = type === 'error' ? 8000 : type === 'success' ? 6000 : 5000;
   setTimeout(() => {
     if (notification && notification.parentNode) {
       notification.style.transform = "translateX(100%)";
-      setTimeout(() => notification.remove(), 300);
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.remove();
+        }
+      }, 300);
     }
-  }, 5000);
+  }, autoRemoveDelay);
 }
 
 // Copy to clipboard function
@@ -513,52 +737,83 @@ function addScrollAnimations() {
 }
 
 // Back to top button
+// Enhanced Back to Top Button
 function addBackToTopButton() {
   const backToTopBtn = document.createElement("button");
   backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
   backToTopBtn.className = "back-to-top";
   backToTopBtn.setAttribute("aria-label", "Back to top");
+  backToTopBtn.title = "Back to top";
   document.body.appendChild(backToTopBtn);
 
+  // Add inline styles for better positioning and appearance
+  backToTopBtn.style.cssText = `
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  `;
+
+  // Hover effect
+  backToTopBtn.addEventListener('mouseenter', () => {
+    backToTopBtn.style.transform = backToTopBtn.classList.contains('visible') 
+      ? 'translateY(0) scale(1.1)' 
+      : 'translateY(20px) scale(1.1)';
+    backToTopBtn.style.boxShadow = '0 12px 40px rgba(59, 130, 246, 0.4)';
+  });
+
+  backToTopBtn.addEventListener('mouseleave', () => {
+    backToTopBtn.style.transform = backToTopBtn.classList.contains('visible') 
+      ? 'translateY(0) scale(1)' 
+      : 'translateY(20px) scale(1)';
+    backToTopBtn.style.boxShadow = '0 8px 32px rgba(59, 130, 246, 0.3)';
+  });
+
+  // Show/hide based on scroll position
   window.addEventListener("scroll", () => {
     if (window.scrollY > 500) {
       backToTopBtn.classList.add("visible");
+      backToTopBtn.style.opacity = '1';
+      backToTopBtn.style.visibility = 'visible';
+      backToTopBtn.style.transform = 'translateY(0)';
     } else {
       backToTopBtn.classList.remove("visible");
+      backToTopBtn.style.opacity = '0';
+      backToTopBtn.style.visibility = 'hidden';
+      backToTopBtn.style.transform = 'translateY(20px)';
     }
   });
 
+  // Smooth scroll to top with enhanced animation
   backToTopBtn.addEventListener("click", () => {
+    // Add click animation
+    backToTopBtn.style.transform = 'translateY(0) scale(0.95)';
+    setTimeout(() => {
+      backToTopBtn.style.transform = backToTopBtn.classList.contains('visible') 
+        ? 'translateY(0) scale(1)' 
+        : 'translateY(20px) scale(1)';
+    }, 150);
+
+    // Smooth scroll to top
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  });
-}
-
-// Dark mode toggle
-function addDarkModeToggle() {
-  const darkModeBtn = document.createElement("button");
-  darkModeBtn.innerHTML = '<i class="fas fa-moon"></i>';
-  darkModeBtn.className = "dark-mode-toggle";
-  darkModeBtn.setAttribute("aria-label", "Toggle dark mode");
-  document.body.appendChild(darkModeBtn);
-
-  // Check for saved theme preference
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    darkModeBtn.innerHTML = '<i class="fas fa-sun"></i>';
-  }
-
-  darkModeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    const isDark = document.body.classList.contains("dark-mode");
-
-    darkModeBtn.innerHTML = isDark
-      ? '<i class="fas fa-sun"></i>'
-      : '<i class="fas fa-moon"></i>';
-    localStorage.setItem("theme", isDark ? "dark" : "light");
   });
 }
 
@@ -667,11 +922,246 @@ function setupDynamicImageSizing() {
   });
 }
 
+// Real-time form validation
+function setupRealTimeValidation() {
+  const formInputs = contactForm.querySelectorAll('input, textarea');
+  
+  formInputs.forEach(input => {
+    // Add validation on blur (when user leaves the field)
+    input.addEventListener('blur', function() {
+      validateField(this);
+    });
+
+    // Add validation on input for immediate feedback
+    input.addEventListener('input', function() {
+      // Clear any previous error styling
+      this.classList.remove('error');
+      
+      // Validate email in real-time
+      if (this.type === 'email' && this.value) {
+        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+        if (!emailRegex.test(this.value)) {
+          this.style.borderColor = 'rgba(220, 53, 69, 0.5)';
+        } else {
+          this.style.borderColor = 'rgba(40, 167, 69, 0.5)';
+        }
+      }
+    });
+  });
+}
+
+// Individual field validation
+function validateField(field) {
+  const value = field.value.trim();
+  let isValid = true;
+  let errorMessage = '';
+
+  switch(field.type || field.tagName.toLowerCase()) {
+    case 'email':
+      const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+      if (value && !emailRegex.test(value)) {
+        isValid = false;
+        errorMessage = 'Please enter a valid email address';
+      }
+      break;
+    case 'text':
+      if (field.name === 'name' && value && value.length < 2) {
+        isValid = false;
+        errorMessage = 'Name must be at least 2 characters';
+      }
+      if (field.name === 'subject' && value && value.length < 3) {
+        isValid = false;
+        errorMessage = 'Subject must be at least 3 characters';
+      }
+      break;
+    case 'textarea':
+      if (value && value.length < 10) {
+        isValid = false;
+        errorMessage = 'Message must be at least 10 characters';
+      }
+      break;
+  }
+
+  // Apply visual feedback
+  if (!isValid && value) {
+    field.style.borderColor = 'rgba(220, 53, 69, 0.5)';
+    showFieldError(field, errorMessage);
+  } else if (value) {
+    field.style.borderColor = 'rgba(40, 167, 69, 0.5)';
+    hideFieldError(field);
+  } else {
+    field.style.borderColor = 'var(--glass-border)';
+    hideFieldError(field);
+  }
+
+  return isValid;
+}
+
+// Show field-specific error
+function showFieldError(field, message) {
+  hideFieldError(field); // Remove any existing error
+  
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'field-error';
+  errorDiv.textContent = message;
+  errorDiv.style.cssText = `
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  `;
+  
+  errorDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+  
+  field.parentNode.appendChild(errorDiv);
+  
+  // Animate in
+  setTimeout(() => {
+    errorDiv.style.opacity = '1';
+  }, 10);
+}
+
+// Hide field-specific error
+function hideFieldError(field) {
+  const existingError = field.parentNode.querySelector('.field-error');
+  if (existingError) {
+    existingError.style.opacity = '0';
+    setTimeout(() => {
+      if (existingError.parentNode) {
+        existingError.remove();
+      }
+    }, 300);
+  }
+}
+
+// Character counter for textarea
+function addCharacterCounter() {
+  const messageTextarea = document.getElementById('message');
+  if (!messageTextarea) return;
+
+  const counter = document.createElement('div');
+  counter.className = 'character-counter';
+  counter.style.cssText = `
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+  `;
+  
+  messageTextarea.parentNode.appendChild(counter);
+
+  function updateCounter() {
+    const current = messageTextarea.value.length;
+    const min = 10;
+    const recommended = 50;
+    
+    let message = `${current} characters`;
+    if (current < min) {
+      message += ` (${min - current} more needed)`;
+      counter.style.color = '#dc3545';
+    } else if (current < recommended) {
+      message += ' (minimum reached)';
+      counter.style.color = '#ffc107';
+    } else {
+      message += ' (good length)';
+      counter.style.color = '#28a745';
+    }
+    
+    counter.textContent = message;
+  }
+
+  messageTextarea.addEventListener('input', updateCounter);
+  updateCounter(); // Initial count
+}
+
+// Scroll Progress Indicator
+function createScrollProgressIndicator() {
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  document.body.appendChild(progressBar);
+
+  function updateScrollProgress() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    progressBar.style.width = scrolled + '%';
+  }
+
+  window.addEventListener('scroll', updateScrollProgress);
+  updateScrollProgress(); // Initial call
+}
+
+// Enhanced smooth scrolling for navigation links
+function enhanceSmoothScrolling() {
+  const navLinks = document.querySelectorAll('a[href^="#"]');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      
+      if (targetSection) {
+        const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+        const targetPosition = targetSection.offsetTop - headerHeight - 20;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+}
+
+// Fix scroll position on page load/refresh
+function fixScrollPosition() {
+  // Scroll to top on page load to prevent white patches
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  
+  window.addEventListener('beforeunload', () => {
+    window.scrollTo(0, 0);
+  });
+  
+  // Ensure proper scroll position on load
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+          window.scrollTo({
+            top: target.offsetTop - headerHeight - 20,
+            behavior: 'smooth'
+          });
+        }
+      } else {
+        window.scrollTo(0, 0);
+      }
+    }, 100);
+  });
+}
+
+// Initialize enhanced form features
+if (contactForm) {
+  setupRealTimeValidation();
+  addCharacterCounter();
+}
+
 // Initialize all features
 document.addEventListener("DOMContentLoaded", () => {
   addLoadingScreen();
   addScrollAnimations();
   addBackToTopButton();
-  addDarkModeToggle();
   setupDynamicImageSizing(); // Add dynamic image sizing
+  createScrollProgressIndicator();
+  enhanceSmoothScrolling();
+  fixScrollPosition();
 });
