@@ -5,11 +5,13 @@ This guide explains how to set up EmailJS for the portfolio contact form.
 ## EmailJS Setup
 
 ### 1. Create EmailJS Account
+
 1. Go to [EmailJS.com](https://emailjs.com)
 2. Sign up for a free account
 3. Verify your email address
 
 ### 2. Create Email Service
+
 1. In EmailJS dashboard, go to "Email Services"
 2. Click "Add New Service"
 3. Choose your email provider (Gmail recommended)
@@ -17,6 +19,7 @@ This guide explains how to set up EmailJS for the portfolio contact form.
 5. Note down your **Service ID** (e.g., `service_portfolio`)
 
 ### 3. Create Email Template
+
 1. Go to "Email Templates"
 2. Click "Create New Template"
 3. Use this template structure:
@@ -37,6 +40,7 @@ Sent from portfolio at: {{timestamp}}
 4. Note down your **Template ID** (e.g., `template_contact`)
 
 ### 4. Get Public Key
+
 1. Go to "Account" > "General"
 2. Copy your **Public Key** (e.g., `5ZpqVzBXmfNDK6vTj`)
 
@@ -51,7 +55,7 @@ emailjs.init("YOUR_PUBLIC_KEY_HERE");
 // Line 175: Replace with your service ID
 "service_portfolio", // Your Service ID
 
-// Line 176: Replace with your template ID  
+// Line 176: Replace with your template ID
 "template_contact", // Your Template ID
 ```
 
@@ -77,6 +81,7 @@ The following variables are sent to EmailJS:
 ## Fallback System
 
 If EmailJS fails or is not configured:
+
 - Form automatically falls back to mailto:// links
 - Opens user's default email client
 - Pre-fills email with form data
@@ -85,6 +90,7 @@ If EmailJS fails or is not configured:
 ## Rate Limiting
 
 EmailJS free plan includes:
+
 - 200 emails/month
 - Basic spam protection
 - Standard delivery speed
@@ -96,18 +102,22 @@ For higher volume, consider upgrading to a paid plan.
 ### Common Issues:
 
 1. **"EmailJS not defined" error**
+
    - Check if EmailJS CDN is loaded
    - Verify internet connection
 
 2. **"Invalid public key" error**
+
    - Double-check your public key
    - Ensure it's exactly as shown in EmailJS dashboard
 
 3. **"Service not found" error**
+
    - Verify your service ID
    - Make sure service is active
 
 4. **Emails not received**
+
    - Check spam folder
    - Verify template configuration
    - Test with a different email address
@@ -119,9 +129,11 @@ For higher volume, consider upgrading to a paid plan.
 ### Debug Mode:
 
 To enable debug mode, add this to browser console:
+
 ```javascript
 window.emailjsConfigured = false;
 ```
+
 This forces the form to use mailto fallback for testing.
 
 ## Security Notes
