@@ -1,73 +1,74 @@
 # Portfolio - Pozhilan Karthikeyan
 
-**Embedded Systems Engineer | B.Tech Electrical Engineering, IIT Madras**
+> **B.Tech Electrical Engineering Student | IIT Madras**  
+> Specializing in embedded systems, electronics, FPGAs, and robotics
 
-Modern portfolio showcasing embedded systems projects, IoT innovations, and robotics achievements.
+Modern, responsive portfolio showcasing technical projects and achievements in embedded systems engineering.
 
 ## 🌐 Live Demo
-[View Portfolio](https://pozhilankarthikeyan.github.io/Portfolio/)
+
+**[View Portfolio →](https://pozhilankarthikeyan.github.io/Portfolio/)**
 
 ## 🛠️ Tech Stack
-HTML5, CSS3, JavaScript • Font Awesome • EmailJS • GitHub Pages
 
-## 📁 Structure
-```
-portfolio/
-├── index.html      # Main page
-├── css/style.css   # Responsive styles
-├── js/script.js    # Contact form & interactions
-└── media/          # Images & project assets
-```
+**Frontend:** HTML5, CSS3, JavaScript  
+**Libraries:** Font Awesome, EmailJS  
+**Hosting:** GitHub Pages
 
-## ✨ Features
-- Responsive glassmorphism design
-- Interactive skills showcase
-- Filterable project gallery
-- Multi-channel contact form
-- LinkedIn & GitHub integration
-- **Professional Branding**: Consistent theme throughout
+## ✨ Key Features
 
-## 🏆 Highlighted Achievements
+- Modern glassmorphism design with gradient themes
+- Responsive layout optimized for all devices
+- Interactive project gallery with category filtering
+- Professional contact form with multiple channels
+- Smooth animations and hover effects
 
-- **1st Place Winner** - Shaastra Autonomy Challenge 2025 (₹1,50,000 + Best Design Award)
-- **International Competitor** - Anatolian Rover Challenge 2024, Turkey (6th/30+ teams)
-- **Team Anveshak** - Mars Rover Development Team Member
+## 🏆 Achievements
+
+- **Team Anveshak** - Mars Rover Development Team
+- **Shaastra Autonomy Challenge 2025** - 1st Place Winner
+- **Anatolian Rover Challenge 2024** - International Competitor (Turkey)
 
 ## 🔧 Featured Projects
 
-1. **CAN Bus Communication System** - Automotive-grade networking
-2. **Custom Serial Protocol** - Ground station to rover communication
-3. **FPGA Line Following Bot** - Digital logic and autonomous navigation
-4. **IoT Server Monitoring** - Enterprise-grade environmental monitoring
-5. **LoRa Network with ROS** - Long-range wireless communication
-6. **Smart Watch PCB** - Award-winning hardware design
+**Hardware & Embedded Systems:**
+- CAN Bus Communication System
+- Custom Serial Protocol for Ground Station
+- FPGA Line Following Bot
+- Smart Watch PCB Design
 
-## 🚀 Local Development
+**IoT & Networking:**
+- IoT Server Monitoring System
+- LoRa Network with ROS Integration
+
+## 🚀 Quick Start
 
 ```bash
-# Clone repository
+# Clone the repository
 git clone https://github.com/PozhilanKarthikeyan/Portfolio.git
 
-# Navigate to directory
-cd Portfolio
-
-# Open in browser
-# Simply open index.html in any modern web browser
-# No build process required - pure HTML/CSS/JS
+# Open the portfolio
+cd Portfolio && open index.html
 ```
 
-## 📊 Portfolio Statistics
+## 📂 Project Structure
 
-- **6 Major Projects** showcased with detailed descriptions
-- **7 Technical Categories** covering full embedded systems stack
-- **20+ Technologies** demonstrated across projects
-- **Responsive Design** supporting all screen sizes
-- **Professional Contact** with multiple connection options
+```
+portfolio/
+├── index.html          # Main portfolio page
+├── css/style.css       # Responsive styles & animations
+├── js/script.js        # Interactive functionality
+└── media/              # Project images & assets
+    ├── profile/        # Profile & team photos
+    └── projects/       # Project screenshots
+```
 
 ## 📧 Contact
 
-**Pozhilan Karthikeyan**
+**Pozhilan Karthikeyan**  
+📧 pozhilankarthikeyan2005@gmail.com  
+💼 [LinkedIn](https://www.linkedin.com/in/pozhilan-karthikeyan-905b6735a/)  
+👨‍💻 [GitHub](https://github.com/PozhilanKarthikeyan)
 
-- Email: pozhilankarthikeyan2005@gmail.com
-- LinkedIn: [pozhilan-karthikeyan](https://www.linkedin.com/in/pozhilan-karthikeyan-905b6735a/)
-- GitHub: [PozhilanKarthikeyan](https://github.com/PozhilanKarthikeyan)
+---
+*Built with ❤️ for showcasing embedded systems engineering*
